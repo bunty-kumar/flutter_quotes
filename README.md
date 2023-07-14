@@ -4,7 +4,7 @@ This is a Quotes app that allows users to browse and explore different categorie
 
 ## Demo Video
 
-Click [here](https://example.com) to watch the demo video of the Quotes app.
+Click [here](https://youtube.com/shorts/xElkDU-WcOg?feature=share) to watch the demo video of the Quotes app.
 
 
 ## Features
