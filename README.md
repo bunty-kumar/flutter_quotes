@@ -34,7 +34,7 @@ Click [here](https://example.com) to watch the demo video of the Quotes app.
 
 ## Installation
 
-1. Clone the repository:https://github.com/bunty-kumar/aesthetic_wallpaper.git](https://github.com/bunty-kumar/flutter_quotes.git
+1. Clone the repository:https://github.com/bunty-kumar/flutter_quotes.git
 2. Change to the project directory.
 3. Install dependencies.
 4. Run the app.
