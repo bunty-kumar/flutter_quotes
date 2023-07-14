@@ -27,9 +27,9 @@ Click [here](https://example.com) to watch the demo video of the Quotes app.
 ## Screenshots
 
 ![Splash Screen](https://github.com/bunty-kumar/flutter_quotes/blob/master/splash_screen.jpeg?raw=true)
-![Home Screen ](https://github.com/bunty-kumar/flutter_quotes/blob/master/home_screen.jpeg.jpeg?raw=true)
-![Quotes Full View Screen](https://github.com/bunty-kumar/flutter_quotes/blob/master/quotes_full_screen.jpeg.jpeg?raw=true)
-![Create Quotes Screen](https://github.com/bunty-kumar/flutter_quotes/blob/master/create_quotes.jpeg.jpeg?raw=true)
+![Home Screen ](https://github.com/bunty-kumar/flutter_quotes/blob/master/home_screen.jpeg?raw=true)
+![Quotes Full View Screen](https://github.com/bunty-kumar/flutter_quotes/blob/master/quotes_full_screen.jpeg?raw=true)
+![Create Quotes Screen](https://github.com/bunty-kumar/flutter_quotes/blob/master/create_quotes.jpeg?raw=true)
 
 
 ## Installation
