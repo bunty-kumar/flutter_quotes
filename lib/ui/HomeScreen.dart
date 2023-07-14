@@ -34,10 +34,6 @@ class _HomeScreenState extends State<HomeScreen> {
     await provider.getAllQuotes();
   }
 
-  TextEditingController searchController = TextEditingController();
-
-  List<QuotesCategoryData> quotesCategoryList = [];
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -47,17 +43,27 @@ class _HomeScreenState extends State<HomeScreen> {
         title: const ShowAnimation(
             delay: 200, direction: Direction.down, child: Text("Quotify")),
         actions: [
-          InkWell(
-            onTap: () {
-              Navigator.of(context).push(MaterialPageRoute(
-                  builder: (context) => CreateQuotesScreen(
-                      quotesCategoryList: quotesCategoryList)));
+          Consumer<ApiController>(
+            builder: (context, apiData, _) {
+              return apiData.getCategoryLoader
+                  ? const SizedBox()
+                  : apiData.quotesCategoryModel?.data != null &&
+                          apiData.quotesCategoryModel!.data!.isNotEmpty
+                      ? InkWell(
+                          onTap: () {
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) => CreateQuotesScreen(
+                                    quotesCategoryList:
+                                        apiData.quotesCategoryModel!.data!)));
+                          },
+                          child: Container(
+                            margin: const EdgeInsets.only(right: 16, left: 16),
+                            child: const Icon(Icons.lightbulb_sharp),
+                          ),
+                        )
+                      : const SizedBox();
             },
-            child: Container(
-              margin: const EdgeInsets.only(right: 16, left: 16),
-              child: const Icon(Icons.lightbulb_sharp),
-            ),
-          )
+          ),
         ],
       ),
       body: SafeArea(
@@ -77,12 +83,35 @@ class _HomeScreenState extends State<HomeScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              Consumer<ApiController>(
+                builder: (context, apiData, _) {
+                  return apiData.getCategoryLoader
+                      ? const SizedBox()
+                      : apiData.quotesCategoryModel?.data != null &&
+                              apiData.quotesCategoryModel!.data!.isNotEmpty
+                          ? Container(
+                              margin: const EdgeInsets.only(
+                                  top: 12, left: 12, right: 12, bottom: 8),
+                              height: 40,
+                              child: ListView.builder(
+                                itemCount:
+                                    apiData.quotesCategoryModel!.data!.length,
+                                scrollDirection: Axis.horizontal,
+                                itemBuilder: (context, index) {
+                                  var data = apiData.quotesCategoryModel!.data!;
+                                  return QuotesCategoryCard(
+                                    data: data,
+                                    index: index,
+                                  );
+                                },
+                              ),
+                            )
+                          : const SizedBox();
+                },
+              ),
               Expanded(
                 child: Consumer<ApiController>(
                   builder: (context, apiData, _) {
-                    if (apiData.quotesCategoryModel != null) {
-                      quotesCategoryList = apiData.quotesCategoryModel!.data!;
-                    }
                     return apiData.getQuotesLoader
                         ? const LoaderWidget()
                         : apiData.quotesModel?.data != null &&
@@ -98,7 +127,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 },
                               )
                             : const NoDataFound(
-                                text: "No data found",
+                                text: "No Quotes found",
                               );
                   },
                 ),

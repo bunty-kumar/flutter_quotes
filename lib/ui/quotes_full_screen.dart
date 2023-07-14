@@ -1,6 +1,5 @@
 import 'dart:developer';
 import 'dart:io';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -10,7 +9,6 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:screenshot/screenshot.dart';
 import 'package:share_plus/share_plus.dart';
-
 import '../model/QuotesModel.dart';
 import '../utils/constants.dart';
 
@@ -203,33 +201,37 @@ class _QuotesFullScreenState extends State<QuotesFullScreen> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       InkWell(
-                          onTap: goToPreviousImage,
-                          child: const BottomWidget(
-                              icon: Icons.arrow_back_ios, text: "")),
+                        onTap: goToPreviousImage,
+                        child: const BottomWidget(
+                            icon: Icons.arrow_back_ios, text: ""),
+                      ),
                       InkWell(
-                          onTap: () {
-                            Clipboard.setData(ClipboardData(
-                                    text: data[currentIndex].title!))
-                                .then((_) {
-                              showSnackBar(context, "copied to clipboard");
-                            });
-                          },
-                          child: const BottomWidget(
-                              icon: Icons.copy, text: "Copy")),
+                        onTap: () {
+                          Clipboard.setData(ClipboardData(
+                                  text: data[currentIndex].title!))
+                              .then((_) {
+                            showSnackBar(context, "copied to clipboard");
+                          });
+                        },
+                        child:
+                            const BottomWidget(icon: Icons.copy, text: "Copy"),
+                      ),
                       InkWell(
-                          onTap: () {
-                            saveButtonClicked();
-                          },
-                          child: const BottomWidget(
-                              icon: Icons.save, text: "Save")),
+                        onTap: () {
+                          saveButtonClicked();
+                        },
+                        child:
+                            const BottomWidget(icon: Icons.save, text: "Save"),
+                      ),
                       InkWell(
-                          onTap: () {
-                            shareButtonClicked();
-                          },
-                          child: Ink(
-                            child: const BottomWidget(
-                                icon: Icons.share, text: "Share"),
-                          )),
+                        onTap: () {
+                          shareButtonClicked();
+                        },
+                        child: Ink(
+                          child: const BottomWidget(
+                              icon: Icons.share, text: "Share"),
+                        ),
+                      ),
                       InkWell(
                           onTap: goToNextImage,
                           child: const BottomWidget(
@@ -243,6 +245,11 @@ class _QuotesFullScreenState extends State<QuotesFullScreen> {
         ),
       ),
     );
+  }
+
+
+  void sliderWidget(){
+
   }
 
   Future<void> shareButtonClicked() async {

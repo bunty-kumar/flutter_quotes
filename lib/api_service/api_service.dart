@@ -9,7 +9,7 @@ import 'package:http/http.dart' as http;
 import '../model/QuotesModel.dart';
 
 class ApiController extends ChangeNotifier {
-  static const baseUrl = "http://192.168.0.16:8000/api/";
+  static const baseUrl = "http://192.168.0.7:8000/api/";
 
   bool _getCategoryLoader = true;
 
@@ -63,6 +63,10 @@ class ApiController extends ChangeNotifier {
   QuotesModel? _quotesModel;
 
   QuotesModel? get quotesModel => _quotesModel;
+
+  QuotesModel? _quotesByIDModel;
+
+  QuotesModel? get quotesByIDModel => _quotesByIDModel;
 
   QuoteOfDayModel? _quotesOfDayModel;
 
@@ -136,17 +140,17 @@ class ApiController extends ChangeNotifier {
       try {
         final resp = await http.get(url);
         if (resp.statusCode == 200) {
-          _quotesModel = QuotesModel.fromJson(jsonDecode(resp.body));
+          _quotesByIDModel = QuotesModel.fromJson(jsonDecode(resp.body));
           log("resp data before ${resp.body}");
           setGetQuotesIdLoader(false);
         } else {
           log("failed to get response");
-          _quotesModel = null;
+          _quotesByIDModel = null;
           setGetQuotesIdLoader(false);
         }
       } catch (ex) {
         log("error ${ex.toString()}");
-        _quotesModel = null;
+        _quotesByIDModel = null;
         setGetQuotesIdLoader(false);
       }
     } else {

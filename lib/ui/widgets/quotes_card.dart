@@ -55,9 +55,13 @@ class _QuotesCardState extends State<QuotesCard> {
             children: [
               const Align(
                 alignment: Alignment.topLeft,
-                child: Icon(
-                  CupertinoIcons.quote_bubble,
-                  size: 20,
+                child: Row(
+                  children: [
+                    Icon(
+                      CupertinoIcons.quote_bubble,
+                      size: 20,
+                    ),
+                  ],
                 ),
               ),
               const SizedBox(
@@ -67,7 +71,7 @@ class _QuotesCardState extends State<QuotesCard> {
                 color: Colors.transparent,
                 child: Text(
                   "${widget.data[widget.index].title}",
-                  textAlign: TextAlign.left,
+                  textAlign: TextAlign.justify,
                   style: GoogleFonts.mukta(
                     textStyle: const TextStyle(
                       fontSize: 22,

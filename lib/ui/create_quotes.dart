@@ -23,7 +23,8 @@ class _CreateQuotesScreenState extends State<CreateQuotesScreen> {
   final ValueNotifier<String?> _selectedStudent = ValueNotifier<String?>(null);
   TextEditingController quotesController = TextEditingController();
   TextEditingController authorController = TextEditingController();
-  TextEditingController imageController = TextEditingController();
+
+  // TextEditingController imageController = TextEditingController();
 
   callApi() async {
     var provider = Provider.of<ApiController>(context, listen: false);
@@ -38,7 +39,7 @@ class _CreateQuotesScreenState extends State<CreateQuotesScreen> {
       appBar: AppBar(
         title: const ShowAnimation(
             delay: 200,
-            direction: Direction.down,
+            direction: Direction.right,
             child: Text("Create Quotes")),
         centerTitle: true,
         leading: InkWell(
@@ -63,8 +64,8 @@ class _CreateQuotesScreenState extends State<CreateQuotesScreen> {
         padding: const EdgeInsets.all(20),
         child: SingleChildScrollView(
           child: ShowAnimation(
-            delay: 100,
-            direction: Direction.right,
+            delay: 200,
+            direction: Direction.down,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -159,7 +160,7 @@ class _CreateQuotesScreenState extends State<CreateQuotesScreen> {
                   height: 16,
                 ),
                 const TitleWidget(text: "Add Image Url"),
-                const SizedBox(
+                /*const SizedBox(
                   height: 5,
                 ),
                 TextField(
@@ -186,7 +187,7 @@ class _CreateQuotesScreenState extends State<CreateQuotesScreen> {
                       borderRadius: BorderRadius.circular(10.0),
                     ),
                   ),
-                ),
+                ),*/
                 const SizedBox(
                   height: 16,
                 ),
@@ -255,7 +256,7 @@ class _CreateQuotesScreenState extends State<CreateQuotesScreen> {
                                 var pData = {
                                   "categoryId": _selectedStudent.value,
                                   "title": quotesController.text.trim(),
-                                  "imageUrl": imageController.text.trim(),
+                                  "imageUrl": "",
                                   "authorName": authorController.text.trim(),
                                 };
                                 var bool = await authController
@@ -264,7 +265,6 @@ class _CreateQuotesScreenState extends State<CreateQuotesScreen> {
                                   _selectedStudent.value = null;
                                   quotesController.clear();
                                   authorController.clear();
-                                  imageController.clear();
                                   callApi();
                                 }
                               },
