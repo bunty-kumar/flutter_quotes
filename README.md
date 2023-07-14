@@ -1,5 +1,4 @@
-
-# Wallpaper App
+# Quotes App
 
 This is a Quotes app that allows users to browse and explore different categories of quotes. Users can view quotes in a list format, tap on a quote to view it in full screen, and perform actions such as copying, downloading, and sharing quotes. The app utilizes the Provider package for state management and connects to a Node.js backend API for retrieving the quotes.
 
