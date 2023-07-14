@@ -26,10 +26,10 @@ Click [here](https://example.com) to watch the demo video of the Quotes app.
 
 ## Screenshots
 
-![Home Screen](https://github.com/bunty-kumar/aesthetic_wallpaper/blob/master/home_screen.JPEG)
-![Home Screen Search Filter](https://github.com/bunty-kumar/aesthetic_wallpaper/blob/master/home_screen_search_filter.JPEG)
-![download image](https://github.com/bunty-kumar/aesthetic_wallpaper/blob/master/download_image.JPEG)
-![set wallpaper](https://github.com/bunty-kumar/aesthetic_wallpaper/blob/master/set_wallpaper_menu.JPEG)
+![Splash Screen](https://github.com/bunty-kumar/flutter_quotes/blob/master/splash_screen.jpeg?raw=true)
+![Home Screen ](https://github.com/bunty-kumar/flutter_quotes/blob/master/home_screen.jpeg.jpeg?raw=true)
+![Quotes Full View Screen](https://github.com/bunty-kumar/flutter_quotes/blob/master/quotes_full_screen.jpeg.jpeg?raw=true)
+![Create Quotes Screen](https://github.com/bunty-kumar/flutter_quotes/blob/master/create_quotes.jpeg.jpeg?raw=true)
 
 
 ## Installation
